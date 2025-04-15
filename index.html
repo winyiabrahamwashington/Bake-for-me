@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bake For Me | Premium Ugandan Bakery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-red: #e63946;
+            --dark-red: #d00000;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f8f9fa;
+            --gold: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 20px auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-red);
+        }
+
+        .logo span {
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--black);
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/736x/83/6c/14/836c142c704fc299b3ca4063590a7c19.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Ugandan Specialties */
+        .specialties {
+            background-color: var(--light-gray);
+        }
+
+        .specialty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .specialty-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .specialty-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .specialty-icon {
+            font-size: 40px;
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+
+        .specialty-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .specialty-item p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        /* Occasions Section */
+        .occasions {
+            background-color: var(--white);
+        }
+
+        .occasion-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            color: var(--primary-red);
+            border-bottom: 2px solid var(--primary-red);
+        }
+
+        .occasion-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .occasion-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .occasion-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .occasion-img {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .occasion-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .occasion-item:hover .occasion-img img {
+            transform: scale(1.1);
+        }
+
+        .occasion-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .occasion-info {
+            padding: 20px;
+        }
+
+        .occasion-info h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .occasion-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .occasion-flavor {
+            display: flex;
+            align-items: center;
+        }
+
+        .occasion-flavor i {
+            margin-right: 5px;
+            color: var(--primary-red);
+        }
+
+        .occasion-size {
+            display: flex;
+            align-items: center;
+        }
+
+        .occasion-size i {
+            margin-right: 5px;
+            color: var(--primary-red);
+        }
+
+        .occasion-info p {
+            color: #777;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: normal;
+            color: #777;
+        }
+
+        .btn-small {
+            padding: 8px 20px;
+            font-size: 12px;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-slide {
+            text-align: center;
+            padding: 0 20px;
+            display: none;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-text {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .client-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+            border: 3px solid var(--primary-red);
+        }
+
+        .client-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .client-name {
+            text-align: left;
+        }
+
+        .client-name h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .client-name p {
+            color: var(--light-gray);
+            font-size: 14px;
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            background-color: #444;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-red);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--light-gray);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .gallery-item {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay i {
+            color: var(--white);
+            font-size: 30px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--black);
+        }
+
+        .info-text p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--black);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-red);
+            outline: none;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+            padding: 0 15px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+
+        .footer-col p {
+            line-height: 1.8;
+            color: #bbb;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-red);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .footer-col {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.5s ease;
+                padding: 20px 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .occasion-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .occasion-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSChpPecqcXPYTOZQk8GZJq8Mc1V99jQNkwEg&s" alt="Bake For Me Logo" class="logo-img">
+                    <a href="#" class="logo">Bake<span>For Me</span></a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#specialties">Specialties</a></li>
+                    <li><a href="#occasions">Occasions</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Uganda's Finest Artisan Cakes</h1>
+                <p>Handcrafted with love using the finest local ingredients to celebrate your special moments in style.</p>
+                <a href="#occasions" class="btn">Explore Our Cakes</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://i.pinimg.com/736x/cf/78/07/cf78076d0d60df4c585ecb55380dccff.jpg" alt="Bake For Me Bakery">
+                </div>
+                <div class="about-text">
+                    <h3>Baking Happiness Since 2015</h3>
+                    <p>Bake For Me began as a small home bakery in Kampala with a passion for creating beautiful, delicious cakes that bring people together. What started as a humble kitchen operation has grown into one of Uganda's most beloved bakeries.</p>
+                    <p>Our master bakers combine traditional African baking techniques with modern designs to create cakes that are as stunning as they are delicious. We use only the finest Ugandan-sourced ingredients to ensure every bite is a moment of pure joy.</p>
+                    <p>From weddings to birthdays and everything in between, we're honored to be part of your special Ugandan celebrations with cakes that reflect our rich culture and your unique style.</p>
+                    <a href="#contact" class="btn">Visit Our Bakery</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ugandan Specialties -->
+    <section class="specialties" id="specialties">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ugandan Specialties</h2>
+            </div>
+            <div class="specialty-grid">
+                <div class="specialty-item">
+                    <div class="specialty-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Local Ingredients</h3>
+                    <p>We source fresh ingredients from Ugandan farms including vanilla, cocoa, fruits, and dairy to support our local economy.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Handcrafted</h3>
+                    <p>Each cake is lovingly handmade by our skilled Ugandan bakers with attention to every detail.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Custom Designs</h3>
+                    <p>We create bespoke cakes tailored to your special occasion and personal style.</p>
+                </div>
+                <div class="specialty-item">
+                    <div class="specialty-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Award Winning</h3>
+                    <p>Recognized as Uganda's best bakery in 2022 for our exceptional quality and creativity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Occasions Section -->
+    <section class="occasions" id="occasions">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cakes for Every Occasion</h2>
+            </div>
+            <div class="occasion-categories">
+                <button class="category-btn active" data-category="all">All Cakes</button>
+                <button class="category-btn" data-category="wedding">Weddings</button>
+                <button class="category-btn" data-category="birthday">Birthdays</button>
+                <button class="category-btn" data-category="anniversary">Anniversaries</button>
+                <button class="category-btn" data-category="baby">Baby Showers</button>
+                <button class="category-btn" data-category="corporate">Corporate</button>
+                <button class="category-btn" data-category="graduation">Graduations</button>
+            </div>
+            <div class="occasion-grid">
+                <!-- Wedding Cakes -->
+                <div class="occasion-item" data-category="wedding">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/8b/8e/3d/8b8e3d42a82c86be8174f385c10bf8ad.jpg" alt="Royal Ugandan Wedding Cake">
+                        <span class="occasion-tag">Wedding</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Royal Ugandan Wedding</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Vanilla & Passion Fruit
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 4 Tiers
+                            </div>
+                        </div>
+                        <p>Elegant four-tiered vanilla cake with passion fruit filling, covered in Swiss buttercream and adorned with sugar flowers and gold leaf accents.</p>
+                        <div class="price">1,500,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="occasion-item" data-category="wedding">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/62/4b/06/624b067a819219d511f82345678fc8fd.jpg" alt="Modern Naked Cake">
+                        <span class="occasion-tag">Wedding</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Modern Naked Cake</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Chocolate & Berry
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 3 Tiers
+                            </div>
+                        </div>
+                        <p>Semi-naked chocolate cake with layers of fresh berry compote and chocolate ganache, decorated with seasonal fruits and edible flowers.</p>
+                        <div class="price">1,200,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Birthday Cakes -->
+                <div class="occasion-item" data-category="birthday">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/d4/55/4c/d4554c0d5ac5503c9a5630f4b8890b49.jpg" alt="Chocolate Overload Cake">
+                        <span class="occasion-tag">Birthday</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Chocolate Overload</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Triple Chocolate
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 9" Round
+                            </div>
+                        </div>
+                        <p>Rich Ugandan chocolate cake with layers of chocolate ganache and chocolate buttercream, topped with chocolate shavings and truffles.</p>
+                        <div class="price">180,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="occasion-item" data-category="birthday">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/01/36/6b/01366b2e60975bd54f383d0d980a8b33.jpg" alt="Rainbow Sprinkle Cake">
+                        <span class="occasion-tag">Birthday</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Rainbow Celebration</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Funfetti Vanilla
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 8" Round
+                            </div>
+                        </div>
+                        <p>Fun vanilla cake with rainbow layers and colorful sprinkles throughout, covered in vibrant buttercream and more sprinkles!</p>
+                        <div class="price">150,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Anniversary Cakes -->
+                <div class="occasion-item" data-category="anniversary">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/51/f6/6e/51f66e07777cf5d28d7b217e19a056f9.jpg" alt="Golden Anniversary Cake">
+                        <span class="occasion-tag">Anniversary</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Golden Anniversary</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Red Velvet & Cream Cheese
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 2 Tiers
+                            </div>
+                        </div>
+                        <p>Luxurious red velvet cake with cream cheese frosting and elegant gold detailing, perfect for celebrating years of love.</p>
+                        <div class="price">350,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="occasion-item" data-category="anniversary">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/f0/46/c1/f046c1ed26258c53c231f7aac1312fb6.jpg" alt="Heart-Shaped Cake">
+                        <span class="occasion-tag">Anniversary</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Heart-Shaped Delight</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Strawberry & Vanilla
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 10" Heart
+                            </div>
+                        </div>
+                        <p>Romantic strawberry cake with vanilla buttercream and fresh strawberry filling, shaped as a beautiful heart.</p>
+                        <div class="price">220,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Baby Shower Cakes -->
+                <div class="occasion-item" data-category="baby">
+                    <div class="occasion-img">
+                        <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Baby Block Cake">
+                        <span class="occasion-tag">Baby Shower</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Baby Block Cake</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Vanilla & Lemon
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 8" Square
+                            </div>
+                        </div>
+                        <p>Adorable vanilla cake decorated to look like stacked baby blocks with pastel colors and lemon curd filling.</p>
+                        <div class="price">250,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="occasion-item" data-category="baby">
+                    <div class="occasion-img">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Stork Delivery Cake">
+                        <span class="occasion-tag">Baby Shower</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Stork Delivery</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Chocolate & Caramel
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 9" Round
+                            </div>
+                        </div>
+                        <p>Chocolate cake with vanilla buttercream and adorable stork decoration delivering a sweet bundle of joy.</p>
+                        <div class="price">280,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Corporate Cakes -->
+                <div class="occasion-item" data-category="corporate">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/ee/7e/33/ee7e33867b56c80493643c5581d7f3f6.jpg" alt="Elegant Corporate Cake">
+                        <span class="occasion-tag">Corporate</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Executive Elegance</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Marble & Coffee
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 10" Round
+                            </div>
+                        </div>
+                        <p>Sophisticated marble cake with coffee buttercream, perfect for corporate events and business celebrations.</p>
+                        <div class="price">300,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- Graduation Cakes -->
+                <div class="occasion-item" data-category="graduation">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/7a/48/c0/7a48c0ee6737094b675af0c64ef3473d.jpg" alt="Graduation Cap Cake">
+                        <span class="occasion-tag">Graduation</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Graduation Cap</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Vanilla & Chocolate
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 8" Square
+                            </div>
+                        </div>
+                        <p>Celebrate academic achievements with this graduation cap cake featuring school colors and edible diploma.</p>
+                        <div class="price">200,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- More Birthday Cakes -->
+                <div class="occasion-item" data-category="birthday">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/2f/96/e1/2f96e13121260ed97e004a4db626b839.jpg" alt="Princess Castle Cake">
+                        <span class="occasion-tag">Birthday</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Princess Castle</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Strawberry & Vanilla
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 10" Round
+                            </div>
+                        </div>
+                        <p>Magical castle cake with turrets, flags, and pink buttercream, perfect for a princess-themed birthday.</p>
+                        <div class="price">320,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+
+                <!-- More Wedding Cakes -->
+                <div class="occasion-item" data-category="wedding">
+                    <div class="occasion-img">
+                        <img src="https://i.pinimg.com/736x/d8/3e/3b/d83e3bff91831130b39c0016dbee5264.jpg" alt="Floral Wedding Cake">
+                        <span class="occasion-tag">Wedding</span>
+                    </div>
+                    <div class="occasion-info">
+                        <h3>Floral Elegance</h3>
+                        <div class="occasion-meta">
+                            <div class="occasion-flavor">
+                                <i class="fas fa-ice-cream"></i> Lemon & Raspberry
+                            </div>
+                            <div class="occasion-size">
+                                <i class="fas fa-ruler-combined"></i> 3 Tiers
+                            </div>
+                        </div>
+                        <p>Delicate white cake adorned with sugar flowers and fresh raspberry filling between lemon cake layers.</p>
+                        <div class="price">1,800,000 UGX <span>and up</span></div>
+                        <a href="#contact" class="btn btn-small">Order Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Cake Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/ad/c7/2d/adc72da2c158ef22eea8d5a4e99273a8.jpg" alt="Chocolate Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/d2/55/73/d25573d82dc7c40489ecf2ad7d9b08bb.jpg" alt="Elegant Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/b8/6f/1a/b86f1a460e216b4a3d1ee4350751c051.jpg" alt="Graduation Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/27/87/53/2787538bcfea70db53582a39dd1dd13b.jpg" alt="Wedding Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/c5/78/1b/c5781b44bcfe7449607438fc7a556dc8.jpg" alt="Baby Shower Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/09/5d/a9/095da9a24b283aa8b06c68e809377a2e.jpg" alt="Baby Block Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/40/17/2a/40172a7b426d106baca68088cbec4526.jpg" alt="Heart Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/736x/e2/c8/64/e2c8645760af49a02572e509adf204e7.jpg" alt="Anniversary Cake">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-text">"Bake For Me created the most stunning wedding cake that exceeded all our expectations. Not only was it beautiful, but it tasted incredible too. Our guests are still talking about it months later! The Ugandan vanilla flavor was exceptional."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah Johnson">
+                        </div>
+                        <div class="client-name">
+                            <h4>Sarah Johnson</h4>
+                            <p>Wedding Client, Kampala</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"I've ordered birthday cakes from Bake For Me for all three of my children. Each one has been unique, delicious, and the highlight of their parties. The team truly understands how to make kids (and parents) happy with their creative Ugandan-themed designs!"</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+                        </div>
+                        <div class="client-name">
+                            <h4>Michael Chen</h4>
+                            <p>Parent, Entebbe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-text">"For our 25th anniversary, I wanted something special. The golden anniversary cake was absolutely perfect - elegant, delicious, and exactly what I envisioned. The attention to detail was remarkable and the Ugandan flavors were a wonderful touch."</p>
+                    <div class="client-info">
+                        <div class="client-img">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Elizabeth Parker">
+                        </div>
+                        <div class="client-name">
+                            <h4>Elizabeth Parker</h4>
+                            <p>Anniversary Client, Jinja</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Create Something Sweet Together</h3>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Location</h4>
+                            <p>123 Bakery Avenue, Kampala, Uganda</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p>+256 712 345 678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p>orders@bakeforme.ug</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Hours</h4>
+                            <p>Monday-Friday: 8am - 6pm<br>Saturday: 9am - 5pm<br>Sunday: 10am - 3pm</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="info-text">
+                            <h4>Visit Our Cafe</h4>
+                            <p>Come enjoy our cakes with a cup of Ugandan coffee at our attached cafe!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="cakeOrderForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="occasion">Occasion</label>
+                            <select id="occasion" class="form-control" required>
+                                <option value="">Select an occasion</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="birthday">Birthday</option>
+                                <option value="anniversary">Anniversary</option>
+                                <option value="baby-shower">Baby Shower</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Event Date</label>
+                            <input type="date" id="date" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Number of Guests</label>
+                            <input type="number" id="guests" class="form-control" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Special Requests</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Tell us about your dream cake... flavors, design ideas, dietary restrictions, etc."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="logo-container">
+                        <img src="https://via.placeholder.com/40x40?text=BFM" alt="Bake For Me Logo" class="logo-img">
+                        <h3>Bake For Me</h3>
+                    </div>
+                    <p>Uganda's premier artisan bakery creating beautiful, delicious cakes for all of life's special moments since 2015.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#specialties">Our Specialties</a></li>
+                        <li><a href="#occasions">Our Cakes</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Cake Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" data-category="wedding">Wedding Cakes</a></li>
+                        <li><a href="#" data-category="birthday">Birthday Cakes</a></li>
+                        <li><a href="#" data-category="anniversary">Anniversary Cakes</a></li>
+                        <li><a href="#" data-category="baby">Baby Shower Cakes</a></li>
+                        <li><a href="#" data-category="corporate">Corporate Cakes</a></li>
+                        <li><a href="#" data-category="graduation">Graduation Cakes</a></li>
+                        <li><a href="#">Custom Cakes</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for seasonal specials, baking tips, and sweet inspiration.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" class="form-control" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2023</span> Bake For Me. All Rights Reserved. | Proudly Ugandan</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/256712345678" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Category filtering
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const occasionItems = document.querySelectorAll('.occasion-item');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                categoryBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter items
+                const category = btn.dataset.category;
+                occasionItems.forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Testimonial slider
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const sliderDots = document.querySelectorAll('.slider-dot');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            testimonialSlides.forEach(slide => slide.classList.remove('active'));
+            sliderDots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialSlides[index].classList.add('active');
+            sliderDots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        sliderDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.slide));
+            });
+        });
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            let nextSlide = (currentSlide + 1) % testimonialSlides.length;
+            showSlide(nextSlide);
+        }, 5000);
+
+        // Form submission
+        const cakeOrderForm = document.getElementById('cakeOrderForm');
+        cakeOrderForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you shortly to discuss your cake order.');
+            cakeOrderForm.reset();
+        });
+
+        // Footer category links
+        document.querySelectorAll('.footer-links a[data-category]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.dataset.category;
+                
+                // Scroll to occasions section
+                document.querySelector('#occasions').scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Trigger category filter after a short delay
+                setTimeout(() => {
+                    document.querySelector(`.category-btn[data-category="${category}"]`).click();
+                }, 500);
+            });
+        });
+
+        // Gallery lightbox (would need additional HTML/CSS for full implementation)
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // In a full implementation, this would open a lightbox with the larger image
+                console.log('Opening gallery image');
+            });
+        });
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        // Current date in contact form
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
+        const minDate = yyyy + '-' + mm + '-' + dd;
+        document.getElementById('date').min = minDate;
+    </script>
+</body>
+</html>
